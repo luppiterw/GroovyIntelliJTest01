@@ -13,3 +13,8 @@ println("\n")
 4.times {
     print "no "
 }
+
+int times = 5
+times.times {
+    print "--- "
+}
