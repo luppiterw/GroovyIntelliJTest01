@@ -15,5 +15,21 @@ println(foo('evil'))
 println(foo(null))
 
 
+///< openFile没有处理FileNotFoundException异常,而是被传给调用代码
+def openFile(fileName) {
+    new FileInputStream(fileName)
+}
+
+try {
+    openFile("nnnnonon")
+} catch (FileNotFoundException e) {
+    println("FileNotFoundException => " + e)
+}
+
+try {
+    openFile("nnnnonon")
+} catch (Exception e) {
+    println("Exception => " + e)
+}
 
 
