@@ -154,7 +154,7 @@ println("e(9,8,7,B)=" + e(9,8,7,'B'))
  * 同时，在闭包的逻辑处理中要使用这些参数则需要使用数组的each方法
  * */
 def clList = {
-    arg1, Objects[] args ->
+    arg1, Object[] args ->
         def list = []
         list << arg1
         println("LIST=" + list)
