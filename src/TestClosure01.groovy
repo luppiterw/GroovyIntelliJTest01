@@ -171,3 +171,26 @@ try {
 } finally {
     println("cList print end")
 }
+
+
+//如果闭包的参数声明中没有list，那么传入参数可以设置为list，里面的参数将分别传入闭包参数
+def clListSum = {
+    a, b, c ->
+        a + b + c
+}
+def tList = [1,2,3]
+println("clListSum([1,2,3]) = " + clListSum(tList))
+
+
+//闭包有一个curry方法，该方法的作用是锁定闭包的首个参数。类似于java中的方法重载。见代码
+def concat = {
+    p1, p2, p3 ->
+        "$p1 $p2 $p3"
+}
+def concatAfterFly = concat.curry('fly')
+println("concat.curry('fly') concatAfterFly('drive', 'cycle')= " + concatAfterFly('drive', 'cycle'))
+def concatAfterFlySwim = concatAfterFly.curry('swim')
+println("concatAfterFly.curry('swim') concatAfterFly('drive', 'cycle')= " + concatAfterFlySwim('walk'))
+
+//闭包是可嵌套的
+
