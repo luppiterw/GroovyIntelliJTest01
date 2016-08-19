@@ -192,5 +192,22 @@ println("concat.curry('fly') concatAfterFly('drive', 'cycle')= " + concatAfterFl
 def concatAfterFlySwim = concatAfterFly.curry('swim')
 println("concatAfterFly.curry('swim') concatAfterFly('drive', 'cycle')= " + concatAfterFlySwim('walk'))
 
-//闭包是可嵌套的
+//闭包是可嵌套的 (common divisor)
+def gcd
+gcd = {
+    m, n ->
+        m % n == 0 ? n : gcd(n, m % n)
+}
+println("gcd(28, 35) = " + gcd(28, 35))
+println("gcd(280, 350) = " + gcd(280, 350))
+println("gcd(35, 28) = " + gcd(35, 28))
+
+//可以在闭包中用call闭包进行迭代Fibonacci numbers
+def results = [];
+{
+    a, b ->
+        results << a
+        a < 10 && call(b, a + b)
+}(1, 1)
+println("Fibonacci numbers = " + results)
 
