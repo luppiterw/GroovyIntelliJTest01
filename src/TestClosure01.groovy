@@ -192,7 +192,7 @@ println("concat.curry('fly') concatAfterFly('drive', 'cycle')= " + concatAfterFl
 def concatAfterFlySwim = concatAfterFly.curry('swim')
 println("concatAfterFly.curry('swim') concatAfterFly('drive', 'cycle')= " + concatAfterFlySwim('walk'))
 
-//闭包是可嵌套的 (common divisor)
+//闭包是可嵌套的 (greatest common divisor 最大公约数)
 def gcd
 gcd = {
     m, n ->
@@ -211,3 +211,10 @@ def results = [];
 }(1, 1)
 println("Fibonacci numbers = " + results)
 
+///<@Hughie 最小公倍数 lowest common multiple(LCM) 最小公倍数=两数的乘积/最大公约（因）数
+def lcm
+lcm = {
+    m, n ->
+        m * n / gcd(m, n)
+}
+println("lcm(35, 28) = " + lcm(35, 28))
