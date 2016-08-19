@@ -218,3 +218,27 @@ lcm = {
         m * n / gcd(m, n)
 }
 println("lcm(35, 28) = " + lcm(35, 28))
+
+
+///<@Hughie 列出[2,n] 内质数 在一般领域，对正整数n，如果用2到 根号n 之间的所有整数去除，均无法整除，则n为质数。
+def isPrime = {
+    num ->
+        if(num <= 3)
+            return num > 1
+        for(i in 2..Math.sqrt(num)){
+            if(num % i == 0)
+                return false
+        }
+        true
+}
+def getPrimeNumbers = {
+    n ->
+        retList = [];
+        for(nx in 2..n) {
+            if(isPrime(nx))
+                retList << nx
+        }
+        retList
+}
+prime100 = getPrimeNumbers(100)
+println("getPrimeNumbers(100)" + prime100 + " count = " + prime100.size())
