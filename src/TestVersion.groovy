@@ -29,3 +29,10 @@ println(getMyVersionName())
 println(getMyVersionCode("master"))
 //println((char)getMyVersionCode("master"))
 
+
+def getDateDetails = {
+    ->
+        new Date().format("yyyyMMdd-hhmmss")
+}
+
+println(getDateDetails())
