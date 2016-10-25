@@ -8,6 +8,7 @@ def getMyVersionName = {
 }
 def getMyVersionCode = {
     it ->
+        def sss = new ByteArrayOutputStream()
         Process process = Runtime.getRuntime().exec("git branch -v")// | grep develop")
         String trimProcessStr = process.getText().trim()
         trimProcessStr = trimProcessStr.substring(trimProcessStr.indexOf("$it") + "$it".length()).trim()
@@ -27,3 +28,4 @@ println(getMyVersionName())
 //println(getMyVersionCode("develop"))
 println(getMyVersionCode("master"))
 //println((char)getMyVersionCode("master"))
+
